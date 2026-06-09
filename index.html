@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Het Shukla — Backend Engineer</title>
+  <meta name="description" content="Het Shukla is a Backend Engineer focused on real-time systems and distributed architecture. Building E2EE video conferencing and production-grade backend systems.">
+  <meta property="og:title" content="Het Shukla — Backend Engineer">
+  <meta property="og:description" content="Backend Engineer · Real-time Systems & Distributed Architecture · Node.js · TypeScript · WebRTC">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hetshukla.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Het Shukla — Backend Engineer">
+  <meta name="twitter:description" content="Backend Engineer · Real-time Systems & Distributed Architecture">
+  <link rel="canonical" href="https://hetshukla.com">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Het Shukla",
+    "jobTitle": "Backend Engineer",
+    "description": "Backend Engineer focused on real-time systems and distributed architecture",
+    "url": "https://hetshukla.com",
+    "email": "contact@hetshukla.com",
+    "sameAs": [
+      "https://github.com/HET-SHUKLA",
+      "https://linkedin.com/in/het-shukla-dev"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:             #FFFFFF;
+      --text:           #111827;
+      --text-secondary: #6B7280;
+      --text-muted:     #9CA3AF;
+      --accent:         #10B981;
+      --accent-dark:    #059669;
+      --surface:        #F9FAFB;
+      --border:         #E5E7EB;
+      --font-mono:      'IBM Plex Mono', 'Courier New', monospace;
+      --font-body:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width:      700px;
+      --section-gap:    4.5rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3.5rem;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo-dot { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ─── MAIN ────────────────────────────────────────── */
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────── */
+    section {
+      padding: var(--section-gap) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    #hero {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .hero-name {
+      font-family: var(--font-mono);
+      font-size: clamp(2rem, 5.5vw, 2.75rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.1;
+      display: inline-block;
+    }
+
+    .hero-name-line {
+      display: block;
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 0.75rem;
+      animation: grow-line 0.6s ease 0.3s forwards;
+    }
+
+    @keyframes grow-line {
+      to { width: 2.5rem; }
+    }
+
+    .hero-role {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 1.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      align-items: center;
+    }
+
+    .hero-link {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.25rem 0;
+      transition: color 0.15s ease;
+    }
+
+    .hero-link:hover { color: var(--accent); }
+    .hero-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+    /* ─── ABOUT ───────────────────────────────────────── */
+    .about-text {
+      font-size: 0.9375rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .about-text p + p { margin-top: 0.875rem; }
+
+    /* ─── EXPERIENCE ──────────────────────────────────── */
+    .experience-list { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 1.5rem;
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      padding-top: 0.25rem;
+    }
+
+    .exp-role {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.125rem;
+    }
+
+    .exp-company {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .exp-bullets li {
+      font-size: 0.875rem;
+      color: var(--text);
+      padding-left: 1.125rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      top: 0.15rem;
+    }
+
+    /* ─── PROJECTS ────────────────────────────────────── */
+    .projects-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .project-card:hover { border-color: var(--accent); }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .project-name {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: color 0.15s ease;
+    }
+
+    .project-link:hover { color: var(--accent); }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 0.875rem;
+    }
+
+    .project-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-highlights li {
+      font-size: 0.8125rem;
+      color: var(--text);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .project-highlights li::before {
+      content: '·';
+      position: absolute;
+      left: 0.2rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-secondary);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.125rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    /* ─── API EXPLORER ────────────────────────────────── */
+    .api-intro {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .api-panel {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .api-panel-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.625rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .tl-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .api-panel-url {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    .api-panel-body {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+    }
+
+    .api-endpoints {
+      border-right: 1px solid var(--border);
+      padding: 0.625rem;
+    }
+
+    .api-endpoint-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      padding: 0.5rem 0.625rem;
+      background: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s ease;
+      margin-bottom: 0.125rem;
+    }
+
+    .api-endpoint-btn:hover { background: var(--border); }
+
+    .api-endpoint-btn.active { background: var(--surface); }
+    .api-endpoint-btn.active .ep-method { color: var(--accent); }
+
+    .ep-method {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      width: 2.25rem;
+      flex-shrink: 0;
+    }
+
+    .ep-path {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text);
+    }
+
+    .api-response-pane {
+      padding: 1rem;
+      min-height: 200px;
+      background: var(--bg);
+    }
+
+    .api-status-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .api-status-code {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .api-status-text {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--text-muted);
+    }
+
+    .api-response-body {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre;
+      overflow-x: auto;
+      transition: opacity 0.15s ease;
+    }
+
+    /* JSON syntax highlight */
+    .jk { color: #6B7280; }
+    .js { color: #059669; }
+    .jn { color: #2563EB; }
+    .jb { color: #D97706; }
+    .jz { color: #9CA3AF; }
+
+    .api-footer {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .api-footer-text { font-size: 0.875rem; color: var(--text-secondary); }
+
+    .api-footer-link {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+
+    .api-footer-link:hover { border-color: var(--accent); }
+
+    /* ─── CONTACT ─────────────────────────────────────── */
+    .contact-email {
+      font-family: var(--font-mono);
+      font-size: 1.125rem;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease;
+    }
+
+    .contact-email:hover { border-color: var(--accent); }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-link {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .contact-link:hover { color: var(--text); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .footer-status {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: status-pulse 2.5s ease-in-out infinite;
+    }
+
+    .status-dot.offline { background: #EF4444; animation: none; }
+
+    @keyframes status-pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 580px) {
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 0.375rem;
+      }
+
+      .exp-period { font-size: 0.6875rem; }
+
+      .api-panel-body {
+        grid-template-columns: 1fr;
+      }
+
+      .api-endpoints {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        padding: 0.5rem;
+      }
+
+      .api-endpoint-btn { width: auto; }
+
+      footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .nav-links { gap: 1.125rem; }
+    }
+
+    /* ─── FOCUS / ACCESSIBILITY ───────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .hero-name-line { width: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">het<span class="nav-logo-dot">.</span>shukla</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#api">API</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══ HERO ═════════════════════════════════════════ -->
+  <section id="hero">
+    <h1 class="hero-name" data-api="meta.name">
+      Het Shukla
+      <span class="hero-name-line" aria-hidden="true"></span>
+    </h1>
+    <p class="hero-role" data-api="meta.title">Backend Engineer</p>
+    <p class="hero-subtitle" data-api="meta.subtitle">Real-time Systems &amp; Distributed Architecture</p>
+
+    <div class="hero-links">
+      <a href="https://github.com/HET-SHUKLA" class="hero-link" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        HET-SHUKLA
+      </a>
+      <a href="https://linkedin.com/in/het-shukla-dev" class="hero-link" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:contact@hetshukla.com" class="hero-link">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.729 8.82l-5.695 3.441A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/></svg>
+        contact@hetshukla.com
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ══════════════════════════════════════════ -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-text">
+      <p data-api="about.p1">I am a Backend Engineer focused on real-time systems and distributed architecture.</p>
+      <p data-api="about.p2">I have built an End-to-End encrypted video conferencing application using WebRTC and Mediasoup SFU with per-packet AES-256-GCM encryption and ECDH key exchange with forward secrecy.</p>
+      <p data-api="about.p3">I have worked on a production-grade standalone authentication service with observability, rate limiting, and async job queue using BullMQ and Redis.</p>
+      <p data-api="about.p4">I love to read about other systems' architecture and their approach to make it scalable and more efficient.</p>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIENCE ═════════════════════════════════════ -->
+  <section id="experience">
+    <p class="section-label">Experience</p>
+    <div class="experience-list">
+
+      <div class="exp-item">
+        <div class="exp-period">Apr 2025<br>Present</div>
+        <div class="exp-content">
+          <p class="exp-role">Full Stack Engineer</p>
+          <p class="exp-company">Tata Consultancy Services &middot; Gandhinagar, India</p>
+          <ul class="exp-bullets">
+            <li>Contributing to a payment processing platform serving 46M+ users, working across frontend integration and Spring Boot middleware layers.</li>
+            <li>Implemented iframe prefetching that reduced payment form load time from 10&ndash;15 seconds to 2&ndash;5 seconds on standard networks, and from 40+ seconds to 20&ndash;30 seconds on 4G.</li>
+            <li>Deployed production releases via Concourse CI/CD following formal change management processes including documentation, approval workflows, and environment-gated deployments.</li>
+            <li>Implemented structured event logging, defining custom user action schemas for payment flow and error monitoring.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-period">Nov 2022<br>Mar 2024</div>
+        <div class="exp-content">
+          <p class="exp-role">Undergraduate Research Fellow</p>
+          <p class="exp-company">CMPICA &middot; Anand, Gujarat &middot; Part-time</p>
+          <ul class="exp-bullets">
+            <li>Developed native Android applications for institutes within the organization, automating administrative workflows and reducing manual overhead.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══════════════════════════════════════ -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="projects-list">
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Authentication Service</span>
+          <a href="https://github.com/HET-SHUKLA/authentication-service" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+        <p class="project-desc">A production-grade authentication and session management service built to be extracted and reused as a standalone microservice — handles everything before a user touches your product.</p>
+        <ul class="project-highlights">
+          <li>Hashed refresh tokens with device-level session isolation</li>
+          <li>Google OAuth handled entirely server-side — no client-side token exposure</li>
+          <li>Email delivery decoupled via BullMQ job queue — AWS SES called asynchronously</li>
+          <li>Observability with Grafana, rate limiting, containerized with Docker</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Fastify</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">BullMQ</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">AWS SES</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Connect</span>
+          <a href="https://github.com/HET-SHUKLA/Connect-Backend" class="project-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+        <p class="project-desc">A WebRTC video conferencing backend with a Selective Forwarding Unit (SFU) and end-to-end encrypted media — the server routes video packets it cannot decrypt.</p>
+        <ul class="project-highlights">
+          <li>Per-packet AES-256-GCM encryption via RTCRtpScriptTransform in a dedicated Web Worker</li>
+          <li>ECDH key exchange with forward secrecy negotiated over the signaling channel</li>
+          <li>mediasoup SFU with round-robin worker pool distributed across CPU cores</li>
+          <li>HMAC-SHA1 TURN credential rotation, fully typed WebSocket message bus</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">WebRTC</span>
+          <span class="tech-tag">mediasoup</span>
+          <span class="tech-tag">WebSocket</span>
+          <span class="tech-tag">AES-256-GCM</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ API EXPLORER ═══════════════════════════════════ -->
+  <section id="api">
+    <p class="section-label">API Explorer</p>
+    <p class="api-intro">
+      This portfolio is powered by a live REST API running on a self-hosted Fastify backend.
+      The data you see here is served as structured JSON — try it below.
+    </p>
+
+    <div class="api-panel" role="region" aria-label="API Explorer">
+      <div class="api-panel-header">
+        <div class="tl-dot" style="background:#EF4444"></div>
+        <div class="tl-dot" style="background:#F59E0B"></div>
+        <div class="tl-dot" style="background:#10B981"></div>
+        <span class="api-panel-url">api.hetshukla.com</span>
+      </div>
+
+      <div class="api-panel-body">
+        <div class="api-endpoints" role="list">
+          <button class="api-endpoint-btn active" role="listitem" onclick="selectEndpoint(event, 'me')" aria-pressed="true">
+            <span class="ep-method">GET</span>
+            <span class="ep-path">/me</span>
+          </button>
+          <button class="api-endpoint-btn" role="listitem" onclick="selectEndpoint(event, 'projects')" aria-pressed="false">
+            <span class="ep-method">GET</span>
+            <span class="ep-path">/projects</span>
+          </button>
+          <button class="api-endpoint-btn" role="listitem" onclick="selectEndpoint(event, 'experience')" aria-pressed="false">
+            <span class="ep-method">GET</span>
+            <span class="ep-path">/experience</span>
+          </button>
+          <button class="api-endpoint-btn" role="listitem" onclick="selectEndpoint(event, 'skills')" aria-pressed="false">
+            <span class="ep-method">GET</span>
+            <span class="ep-path">/skills</span>
+          </button>
+        </div>
+
+        <div class="api-response-pane">
+          <div class="api-status-bar">
+            <span class="api-status-code" id="api-status-code">200 OK</span>
+            <span class="api-status-text">application/json</span>
+          </div>
+          <div class="api-response-body" id="api-response-body" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="api-footer">
+      <span class="api-footer-text">Full OpenAPI specification with all endpoints &rarr;</span>
+      <a href="https://api.hetshukla.com/docs" class="api-footer-link" target="_blank" rel="noopener noreferrer">api.hetshukla.com/docs</a>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ════════════════════════════════════════ -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <a href="mailto:contact@hetshukla.com" class="contact-email">contact@hetshukla.com</a>
+    <div class="contact-links">
+      <a href="https://github.com/HET-SHUKLA" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/het-shukla-dev" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="/blog.html" class="contact-link">Blog</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="footer-copy">&copy; 2026 Het Shukla</span>
+  <div class="footer-status">
+    <div class="status-dot" id="status-dot"></div>
+    <span id="status-text">API online</span>
+  </div>
+</footer>
+
+<script>
+  // ── Sample API responses (shown in explorer) ──────────────────────────────
+  const RESPONSES = {
+    me: {
+      success: true,
+      data: {
+        name: "Het Shukla",
+        title: "Backend Engineer",
+        focus: "Real-time Systems & Distributed Architecture",
+        location: "Gandhinagar, Gujarat, India",
+        email: "contact@hetshukla.com",
+        available_for_work: true
+      }
+    },
+    projects: {
+      success: true,
+      data: [
+        {
+          id: "authentication-service",
+          name: "Authentication Service",
+          type: "microservice",
+          tech: ["TypeScript", "Fastify", "PostgreSQL", "Redis", "BullMQ"],
+          github: "https://github.com/HET-SHUKLA/authentication-service"
+        },
+        {
+          id: "connect",
+          name: "Connect",
+          type: "real-time",
+          tech: ["TypeScript", "WebRTC", "mediasoup", "AES-256-GCM"],
+          github: "https://github.com/HET-SHUKLA/Connect-Backend"
+        }
+      ]
+    },
+    experience: {
+      success: true,
+      data: [
+        {
+          company: "Tata Consultancy Services",
+          role: "Full Stack Engineer",
+          period: "Apr 2025 – present",
+          scale: "46M+ users"
+        },
+        {
+          company: "CMPICA",
+          role: "Undergraduate Research Fellow",
+          period: "Nov 2022 – Mar 2024",
+          type: "part-time"
+        }
+      ]
+    },
+    skills: {
+      success: true,
+      data: {
+        core: ["TypeScript", "Node.js", "WebRTC", "PostgreSQL", "Redis"],
+        tools: ["Fastify", "BullMQ", "Prisma", "Docker", "mediasoup"],
+        infrastructure: ["Linux", "Nginx", "Concourse CI/CD"]
+      }
+    }
+  };
+
+  // ── JSON syntax highlighter ───────────────────────────────────────────────
+  function highlight(obj) {
+    const raw = JSON.stringify(obj, null, 2)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    return raw.replace(
+      /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
+      match => {
+        if (/^"/.test(match)) return /:$/.test(match)
+          ? `<span class="jk">${match}</span>`
+          : `<span class="js">${match}</span>`;
+        if (/true|false/.test(match)) return `<span class="jb">${match}</span>`;
+        if (/null/.test(match))       return `<span class="jz">${match}</span>`;
+        return `<span class="jn">${match}</span>`;
+      }
+    );
+  }
+
+  // ── Endpoint selector ─────────────────────────────────────────────────────
+  function selectEndpoint(e, name) {
+    document.querySelectorAll('.api-endpoint-btn').forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-pressed', 'false');
+    });
+    e.currentTarget.classList.add('active');
+    e.currentTarget.setAttribute('aria-pressed', 'true');
+
+    const el = document.getElementById('api-response-body');
+    el.style.opacity = '0';
+    setTimeout(() => {
+      el.innerHTML = highlight(RESPONSES[name]);
+      el.style.opacity = '1';
+    }, 120);
+  }
+
+  // Initialise with /me response
+  document.getElementById('api-response-body').innerHTML = highlight(RESPONSES.me);
+
+  // ── Background API hydration ──────────────────────────────────────────────
+  // Fetches live data from your running Fastify backend.
+  // Falls back silently to static HTML if the API is unreachable.
+  // Replace this URL with your actual backend URL once deployed.
+  const API_BASE = 'https://api.hetshukla.com';
+
+  async function hydrate() {
+    try {
+      const res = await fetch(`${API_BASE}/portfolio`, {
+        signal: AbortSignal.timeout(5000)
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const { data } = await res.json();
+      if (!data) return;
+
+      // Update [data-api] elements with values from the API response
+      // Supports dot-notation paths: data-api="meta.name" → data.meta.name
+      document.querySelectorAll('[data-api]').forEach(el => {
+        const path  = el.getAttribute('data-api').split('.');
+        let   value = data;
+        for (const key of path) value = value?.[key];
+        if (value && typeof value === 'string' && value !== el.textContent.trim()) {
+          el.textContent = value;
+        }
+      });
+
+    } catch {
+      // API unreachable — static content stays, status dot turns red
+      const dot  = document.getElementById('status-dot');
+      const text = document.getElementById('status-text');
+      if (dot)  { dot.classList.add('offline'); }
+      if (text) { text.textContent = 'API offline'; }
+    }
+  }
+
+  hydrate();
+</script>
+
+</body>
+</html>
