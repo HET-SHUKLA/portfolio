@@ -1,286 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog — Het Shukla</title>
-  <meta name="description" content="Writing on backend engineering, distributed systems, and software architecture by Het Shukla.">
-  <meta property="og:title" content="Blog — Het Shukla">
-  <meta property="og:description" content="Writing on backend engineering, distributed systems, and software architecture.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hetshukla.com/blog">
-  <link rel="canonical" href="https://hetshukla.com/blog">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Het Shukla</title>
+    <meta name="description"
+        content="Writing on backend engineering, distributed systems, and software architecture by Het Shukla.">
+    <meta property="og:title" content="Blog - Het Shukla">
+    <meta property="og:description"
+        content="Writing on backend engineering, distributed systems, and software architecture.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hetshukla.com/blog">
+    <link rel="canonical" href="https://hetshukla.com/blog">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    :root {
-      --bg:             #FFFFFF;
-      --text:           #111827;
-      --text-secondary: #6B7280;
-      --text-muted:     #9CA3AF;
-      --accent:         #10B981;
-      --surface:        #F9FAFB;
-      --border:         #E5E7EB;
-      --font-mono:      'IBM Plex Mono', 'Courier New', monospace;
-      --font-body:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --max-width:      700px;
-    }
+        :root {
+            --bg: #FFFFFF;
+            --text: #111827;
+            --text-secondary: #6B7280;
+            --text-muted: #9CA3AF;
+            --accent: #10B981;
+            --surface: #F9FAFB;
+            --border: #E5E7EB;
+            --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 700px;
+        }
 
-    html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    /* ─── NAV (identical to main site) ───────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
+        /* ─── NAV (identical to main site) ───────────────── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
 
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 3.5rem;
-    }
+        .nav-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 3.5rem;
+        }
 
-    .nav-logo {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
 
-    .nav-logo-dot { color: var(--accent); }
+        .nav-logo-dot {
+            color: var(--accent);
+        }
 
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
 
-    .nav-links a {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+        .nav-links a {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
 
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--text); }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
 
-    /* ─── MAIN ────────────────────────────────────────── */
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+        /* ─── MAIN ────────────────────────────────────────── */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
-    /* ─── PAGE HEADER ─────────────────────────────────── */
-    .page-header {
-      padding: 4rem 0 3rem;
-      border-bottom: 1px solid var(--border);
-    }
+        /* ─── PAGE HEADER ─────────────────────────────────── */
+        .page-header {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--border);
+        }
 
-    .page-header-label {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
+        .page-header-label {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
 
-    .page-header-title {
-      font-family: var(--font-mono);
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 0.625rem;
-    }
+        .page-header-title {
+            font-family: var(--font-mono);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 0.625rem;
+        }
 
-    .page-header-desc {
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-    }
+        .page-header-desc {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+        }
 
-    /* ─── POST LIST ───────────────────────────────────── */
-    .post-list {
-      padding: 2.5rem 0;
-    }
+        /* ─── POST LIST ───────────────────────────────────── */
+        .post-list {
+            padding: 2.5rem 0;
+        }
 
-    .post-item {
-      display: grid;
-      grid-template-columns: 6rem 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: opacity 0.15s ease;
-    }
+        .post-item {
+            display: grid;
+            grid-template-columns: 6rem 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.15s ease;
+        }
 
-    .post-item:first-child { padding-top: 0; }
-    .post-item:last-of-type { border-bottom: none; }
-    .post-item:hover { opacity: 0.75; }
+        .post-item:first-child {
+            padding-top: 0;
+        }
 
-    .post-date {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      color: var(--text-muted);
-      padding-top: 0.25rem;
-      line-height: 1.5;
-    }
+        .post-item:last-of-type {
+            border-bottom: none;
+        }
 
-    .post-content {}
+        .post-item:hover {
+            opacity: 0.75;
+        }
 
-    .post-title {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.25rem;
-      line-height: 1.4;
-    }
+        .post-date {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            padding-top: 0.25rem;
+            line-height: 1.5;
+        }
 
-    .post-excerpt {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
+        .post-content {}
 
-    .post-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.375rem;
-      margin-top: 0.625rem;
-    }
+        .post-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
 
-    .post-tag {
-      font-family: var(--font-mono);
-      font-size: 0.6875rem;
-      color: var(--text-secondary);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 0.125rem 0.5rem;
-      border-radius: 3px;
-    }
+        .post-excerpt {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
 
-    /* ─── EMPTY STATE ─────────────────────────────────── */
-    .empty-state {
-      padding: 4rem 0;
-      text-align: center;
-    }
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+            margin-top: 0.625rem;
+        }
 
-    .empty-state-icon {
-      font-family: var(--font-mono);
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
+        .post-tag {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 0.125rem 0.5rem;
+            border-radius: 3px;
+        }
 
-    .empty-state-title {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.375rem;
-    }
+        /* ─── EMPTY STATE ─────────────────────────────────── */
+        .empty-state {
+            padding: 4rem 0;
+            text-align: center;
+        }
 
-    .empty-state-text {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-    }
+        .empty-state-icon {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
 
-    /* ─── FOOTER ──────────────────────────────────────── */
-    footer {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border);
-    }
+        .empty-state-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.375rem;
+        }
 
-    .footer-copy {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
+        .empty-state-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
 
-    .footer-back {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
+        /* ─── FOOTER ──────────────────────────────────────── */
+        footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+        }
 
-    .footer-back:hover { color: var(--accent); }
+        .footer-copy {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
-    /* ─── RESPONSIVE ──────────────────────────────────── */
-    @media (max-width: 580px) {
-      .post-item {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-      }
+        .footer-back {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
 
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
-    }
+        .footer-back:hover {
+            color: var(--accent);
+        }
 
-    :focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
-  </style>
+        /* ─── RESPONSIVE ──────────────────────────────────── */
+        @media (max-width: 580px) {
+            .post-item {
+                grid-template-columns: 1fr;
+                gap: 0.25rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ═══ NAVIGATION ══════════════════════════════════════ -->
-<nav>
-  <div class="nav-inner">
-    <a href="/index.html" class="nav-logo">het<span class="nav-logo-dot">.</span>shukla</a>
-    <ul class="nav-links">
-      <li><a href="/index.html#about">About</a></li>
-      <li><a href="/index.html#projects">Projects</a></li>
-      <li><a href="/index.html#api">API</a></li>
-      <li><a href="/blog.html" class="active">Blog</a></li>
-    </ul>
-  </div>
-</nav>
+    <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/index.html" class="nav-logo">het<span class="nav-logo-dot">.</span>shukla</a>
+            <ul class="nav-links">
+                <li><a href="/index.html#about">About</a></li>
+                <li><a href="/index.html#projects">Projects</a></li>
+                <li><a href="/index.html#api">API</a></li>
+                <li><a href="/blog.html" class="active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<main>
+    <main>
 
-  <!-- ═══ PAGE HEADER ════════════════════════════════════ -->
-  <div class="page-header">
-    <p class="page-header-label">Writing</p>
-    <h1 class="page-header-title">Blog</h1>
-    <p class="page-header-desc">Thoughts on backend engineering, distributed systems, and software architecture.</p>
-  </div>
+        <!-- ═══ PAGE HEADER ════════════════════════════════════ -->
+        <div class="page-header">
+            <p class="page-header-label">Writing</p>
+            <h1 class="page-header-title">Blog</h1>
+            <p class="page-header-desc">Thoughts on backend engineering, distributed systems, and software architecture.
+            </p>
+        </div>
 
-  <!-- ═══ POST LIST ══════════════════════════════════════ -->
-  <div class="post-list">
+        <!-- ═══ POST LIST ══════════════════════════════════════ -->
+        <div class="post-list">
 
-    <!--
+            <!--
       ADD POSTS HERE. Copy and paste the block below for each post.
       Replace href with the actual post URL.
 
@@ -298,21 +335,23 @@
 
     -->
 
-    <!-- EMPTY STATE — remove this block once you have posts -->
-    <div class="empty-state">
-      <div class="empty-state-icon">// TODO</div>
-      <p class="empty-state-title">Posts coming soon</p>
-      <p class="empty-state-text">Writing on distributed systems, WebRTC internals, and production backend engineering.</p>
-    </div>
+            <!-- EMPTY STATE - remove this block once you have posts -->
+            <div class="empty-state">
+                <div class="empty-state-icon">// TODO</div>
+                <p class="empty-state-title">Posts coming soon</p>
+                <p class="empty-state-text">Writing on distributed systems, WebRTC internals, and production backend
+                    engineering.</p>
+            </div>
 
-  </div>
+        </div>
 
-</main>
+    </main>
 
-<footer>
-  <span class="footer-copy">&copy; 2026 Het Shukla</span>
-  <a href="/index.html" class="footer-back">&larr; Back to portfolio</a>
-</footer>
+    <footer>
+        <span class="footer-copy">&copy; 2026 Het Shukla</span>
+        <a href="/index.html" class="footer-back">&larr; Back to portfolio</a>
+    </footer>
 
 </body>
+
 </html>
