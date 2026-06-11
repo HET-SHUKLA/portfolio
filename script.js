@@ -186,8 +186,9 @@ window.addEventListener("resize", (e) => {
 const navLinks = document.querySelector(".nav-links");
 if (navLinks) {
   navLinks.addEventListener("click", (e) => {
-    const link = e.target.closest("a");
-    if (!link) return;
+    const clickedAnchor = !!e.target.closest("a");
+    const clickedThemeBtn = !!e.target.closest(".nav-theme-toggle");
+    if (!clickedAnchor && !clickedThemeBtn) return;
     const nav = document.querySelector(".nav-links");
     const toggle = document.querySelector(".nav-toggle");
     if (nav && toggle && window.innerWidth <= 538) {
