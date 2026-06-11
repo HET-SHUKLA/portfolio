@@ -130,7 +130,7 @@ section:last-of-type {
   height: 3px;
   background: var(--accent);
   margin-top: 0.75rem;
-  animation: grow-line 0.6s ease 0.3s forwards;
+  animation: grow-line 2s ease 0.3s forwards;
 }
 
 @keyframes grow-line {
