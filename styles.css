@@ -34,7 +34,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── NAV ─────────────────────────────────────────── */
 nav {
   position: sticky;
   top: 0;
@@ -85,14 +84,12 @@ nav {
   color: var(--text);
 }
 
-/* ─── MAIN ────────────────────────────────────────── */
 main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* ─── SECTIONS ────────────────────────────────────── */
 section {
   padding: var(--section-gap) 0;
   border-bottom: 1px solid var(--border);
@@ -112,7 +109,6 @@ section:last-of-type {
   margin-bottom: 2rem;
 }
 
-/* ─── HERO ────────────────────────────────────────── */
 #hero {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -139,7 +135,7 @@ section:last-of-type {
 
 @keyframes grow-line {
   to {
-    width: 2.5rem;
+    width: 5.5rem;
   }
 }
 
@@ -186,7 +182,6 @@ section:last-of-type {
   flex-shrink: 0;
 }
 
-/* ─── ABOUT ───────────────────────────────────────── */
 .about-text {
   font-size: 0.9375rem;
   color: var(--text);
@@ -197,7 +192,6 @@ section:last-of-type {
   margin-top: 0.875rem;
 }
 
-/* ─── EXPERIENCE ──────────────────────────────────── */
 .experience-list {
   display: flex;
   flex-direction: column;
@@ -255,7 +249,6 @@ section:last-of-type {
   top: 0.15rem;
 }
 
-/* ─── PROJECTS ────────────────────────────────────── */
 .projects-list {
   display: flex;
   flex-direction: column;
@@ -348,7 +341,6 @@ section:last-of-type {
   border-radius: 3px;
 }
 
-/* ─── API EXPLORER ────────────────────────────────── */
 .api-intro {
   font-size: 0.9375rem;
   color: var(--text-secondary);
@@ -518,7 +510,6 @@ section:last-of-type {
   border-color: var(--accent);
 }
 
-/* ─── CONTACT ─────────────────────────────────────── */
 .contact-email {
   font-family: var(--font-mono);
   font-size: 1.125rem;
@@ -551,7 +542,6 @@ section:last-of-type {
   color: var(--text);
 }
 
-/* ─── FOOTER ──────────────────────────────────────── */
 footer {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -600,7 +590,6 @@ footer {
   }
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 580px) {
   .exp-item {
     grid-template-columns: 1fr;
@@ -641,7 +630,6 @@ footer {
   }
 }
 
-/* ─── FOCUS / ACCESSIBILITY ───────────────────────── */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -654,9 +642,5 @@ footer {
   *::after {
     animation: none !important;
     transition: none !important;
-  }
-
-  .hero-name-line {
-    width: 2.5rem;
   }
 }
