@@ -152,6 +152,7 @@ function toggleNav() {
 }
 
 function closeNavOnOutsideClick(e) {
+  if (window.innerWidth > 538) return; // Only apply on mobile widths
   const nav = document.querySelector(".nav-links");
   const toggle = document.querySelector(".nav-toggle");
   if (
@@ -193,5 +194,30 @@ if (navLinks) {
       toggle.setAttribute("aria-expanded", "false");
       nav.style.display = "none";
     }
+  });
+}
+
+// Nav theme
+function applyThemeIcon() {
+  const theme = document.documentElement.getAttribute("data-theme") || "dark";
+  const icon = document.getElementById("theme-icon");
+  if (!icon) return;
+  icon.src = theme === "light" ? "svg/moon-outlined.svg" : "svg/sun-outlined.svg";
+  icon.alt = `Switch to ${theme === "light" ? "dark" : "light"} theme`;
+}
+
+document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") || "dark");
+applyThemeIcon();
+
+const themeToggle = document.querySelector(".nav-theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const theme = document.documentElement.getAttribute("data-theme") || "dark";
+    const newTheme = theme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    try {
+      localStorage.setItem("theme", newTheme);
+    } catch (e) {}
+    applyThemeIcon();
   });
 }

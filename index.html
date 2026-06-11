@@ -38,6 +38,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -53,6 +62,11 @@
                 <li><a href="#api">API</a></li>
                 <li><a href="https://api.hetshukla.com/docs" target="_blank" rel="noopener noreferrer">API Docs
                         &#8599;</a></li>
+                <li>
+                <button class="nav-theme-toggle">
+                    <img id="theme-icon" src="svg/moon-outlined.svg" alt="Switch to light theme" />
+                </button>
+                </li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleNav()">
                 <span class="toggle-bar"></span>

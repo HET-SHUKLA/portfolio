@@ -15,10 +15,23 @@
   --accent-dark: #059669;
   --surface: #f9fafb;
   --border: #e5e7eb;
+  --nav-bg: rgba(255, 255, 255, 0.94);
   --font-mono: "IBM Plex Mono", "Courier New", monospace;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --max-width: 700px;
   --section-gap: 2.5rem;
+}
+
+html[data-theme="dark"] {
+  --bg: #0b1220;
+  --text: #e6eef8;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent: #10b981;
+  --accent-dark: #059669;
+  --surface: #0f1724;
+  --border: #1f2a37;
+  --nav-bg: rgba(11, 18, 32, 0.85);
 }
 
 html {
@@ -38,7 +51,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
@@ -90,6 +103,14 @@ nav {
   border: none;
   color: var(--text-secondary);
   font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.nav-theme-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
   cursor: pointer;
 }
 
