@@ -189,7 +189,7 @@ if (navLinks) {
     if (!link) return;
     const nav = document.querySelector(".nav-links");
     const toggle = document.querySelector(".nav-toggle");
-    if (nav && toggle) {
+    if (nav && toggle && window.innerWidth <= 538) {
       toggle.setAttribute("aria-expanded", "false");
       nav.style.display = "none";
     }
