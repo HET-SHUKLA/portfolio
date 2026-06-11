@@ -203,7 +203,7 @@ function applyThemeIcon() {
   const theme = document.documentElement.getAttribute("data-theme") || "dark";
   const icon = document.getElementById("theme-icon");
   if (!icon) return;
-  icon.src = theme === "light" ? "svg/moon-outlined.svg" : "svg/sun-outlined.svg";
+  icon.src = theme === "light" ? "images/moon-outlined.svg" : "images/sun-outlined.svg";
   icon.alt = `Switch to ${theme === "light" ? "dark" : "light"} theme`;
 }
 
