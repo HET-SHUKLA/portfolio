@@ -140,3 +140,58 @@ async function hydrate() {
 }
 
 hydrate();
+
+function toggleNav() {
+  const nav = document.querySelector(".nav-links");
+  const toggle = document.querySelector(".nav-toggle");
+  if (nav && toggle) {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    nav.style.display = expanded ? "none" : "flex";
+  }
+}
+
+function closeNavOnOutsideClick(e) {
+  const nav = document.querySelector(".nav-links");
+  const toggle = document.querySelector(".nav-toggle");
+  if (
+    nav &&
+    toggle &&
+    !nav.contains(e.target) &&
+    !toggle.contains(e.target)
+  ) {
+    toggle.setAttribute("aria-expanded", "false");
+    nav.style.display = "none";
+  }
+}
+ 
+// Close navigation when clicking/tapping outside the nav or toggle
+document.addEventListener("pointerdown", closeNavOnOutsideClick);
+
+window.addEventListener("resize", (e) => {
+    const nav = document.querySelector(".nav-links");
+    if (window.innerWidth > 538) {
+        if (nav) {
+            nav.style.display = "flex";
+        }
+    } else {
+        if (nav) {
+            nav.style.display = "none";
+        }
+    }
+});
+
+// Hide navigation when a nav link is clicked (mobile behavior)
+const navLinks = document.querySelector(".nav-links");
+if (navLinks) {
+  navLinks.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const nav = document.querySelector(".nav-links");
+    const toggle = document.querySelector(".nav-toggle");
+    if (nav && toggle) {
+      toggle.setAttribute("aria-expanded", "false");
+      nav.style.display = "none";
+    }
+  });
+}
